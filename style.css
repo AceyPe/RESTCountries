@@ -1,0 +1,309 @@
+@import url(https://fonts.google.com/specimen/Nunito+Sans);
+
+
+:root{
+    --light-mode-text: hsl(200, 15%, 8%);
+    --light-mode-background: hsl(0, 0%, 95%);
+    --light-mode-elements:hsl(0, 0%, 100%);
+    --light-mode-input:hsl(0, 0%, 52%);
+
+
+    --dark-mode-background: hsl(207, 26%, 17%);
+    --dark-mode-text:hsl(0, 0%, 100%);
+    --dark-mode-elements: hsl(209, 23%, 22%);
+    --dark-mode-input:hsl(0, 0%, 100%);
+   
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    /* colors*/
+    --elements: Var(--light-mode-elements);
+    --texts: Var(--light-mode-text);
+    --background: Var(--light-mode-background);
+    --input: Var(--light-mode-input);
+
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Nunito Sans',sans-serif;
+    background-color: VAR(--background);
+    transition: 0.3s ease-in-out;
+}
+
+.dark{
+    /* colors*/
+    --elements: Var(--dark-mode-elements);
+    --texts: Var(--dark-mode-text);
+    --background: Var(--dark-mode-background);
+    --input: var(--dark-mode-input);
+
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Nunito Sans',sans-serif;
+    background-color: VAR(--dark-mode-background);
+    color:Var(--dark-mode-text);
+    transition: 0.3s ease-in-out;
+
+
+
+}
+
+.container{
+    width: 100%;
+    padding: 30px;
+    display:flex;
+    justify-content: space-between;
+    background-color:var(--elements);
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+
+}
+
+.container-search{
+    width: 100%;
+    padding: 30px;
+    display:flex;
+    justify-content: space-between;
+    background-color:var(--background);
+}
+
+
+.container-search{
+    width: 100%;
+    padding: 30px;
+    display:flex;
+    justify-content: space-between;
+    background-color:var(--background);
+    color:var(--texts);
+}
+
+.toggle{
+    font-size: 20px;
+    cursor: pointer;
+    width: 300px;
+    color: var(--texts)
+}
+
+.toggle i{
+    padding-right:5px
+}
+
+
+
+button{
+    outline: none;
+    border:none;
+    background:transparent;
+    
+}
+.searchBar{
+    float: left;
+    overflow:hidden;
+    position: relative;
+    width: 600px;
+    text-decoration: none;
+    font-size: 17px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3)
+
+}
+
+.searchBar input{
+    width: 100%;
+    height: 100%;
+    border:none;
+    font-size:15px;
+    padding: 17px 20px;
+    letter-spacing: 0.5px;
+    text-indent: 20px;;
+    color: var(--input);
+    background-color:var(--elements);
+}
+
+.searchBar input::placeholder{
+    color:var(--input);
+}
+
+.searchBar i{
+    position:absolute;
+    top:1rem;
+    left:10px;
+}
+
+.dropDownContainer{
+    width:200px;
+    position: relative;
+    background-color:var(--elements);
+}
+
+.dropDown{
+    width: 100%;
+    padding: 17px 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    display:flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: var(--elements);
+    color: var(--texts);
+}
+.dropDown i{
+    cursor: pointer;
+}
+
+.hideDropDown{
+    display: none;
+
+}
+
+.dropItems{
+    position: absolute;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    padding: 17px 14px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: VAR(--elements);
+    cursor: pointer;
+
+}
+
+
+
+.dropItems p{
+    margin: 5px 0;
+}
+
+.country{
+    min-height: 250px;
+    width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 30px 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    background-color: var(--elements);
+}
+
+#countryList{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+}
+
+#countryList li{
+    
+    text-align: left;
+}
+
+.country-img{
+    height: 250px;
+}
+.country-img img{
+    width: 100%;
+    height: 100%;
+    cursor:pointer;
+}
+.country-info{
+    padding: 20px 17px;
+    cursor:pointer;
+}
+.country-info p{
+    padding: 5px 0px;
+}
+.country-info h2{
+    padding-bottom: 20px;
+}
+
+
+.countryModel{
+    position: fixed;
+    height:100%;
+    width:100%;
+    top: 110px;
+    left: 0;
+    background: var(--background);
+}
+
+.backButton{
+    display: flex;
+    position: fixed;
+    color: var(--texts);
+    background-color: var(--elements);
+    padding: 0.7rem 2rem;
+    margin: 70px 50px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    justify-content: center;
+    cursor:pointer;
+    font-size:16px;
+    border-radius: 5px;
+    
+}
+
+.backButton i{
+    padding-right: 10px;
+}
+
+.model{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.model img{
+    position: relative;
+    height:400px;
+    width:550px;
+    bottom: 70px;
+    left: 50px;
+}
+
+.leftModel{
+    position: relative;
+    bottom:100px;
+    right: 100px;
+}
+
+.leftModel h1{
+    padding-bottom: 30px;
+}
+
+.leftModel p{
+    padding-bottom: 20px;
+}
+
+.rightModel{
+    position: relative;
+    bottom: 115px;
+    right: 400px;
+}
+
+.rightModel p{
+    padding-bottom: 20px;
+}
+
+.borderCountries{
+    position: relative;
+    top: 3rem;
+}
+
+.borderBtn{
+    background-color: Var(--elements);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    padding: 5px 20px;
+    margin: 0 2px;;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--texts);
+}
+
+.show{
+    display:none;
+}
