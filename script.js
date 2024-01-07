@@ -93,7 +93,7 @@ if(borderCountries.innerHtml != "Border Countries: none"){
           })
         })*/
 }
-
+// this is just to push ?
  }
 
  /* get data after fetching*/
