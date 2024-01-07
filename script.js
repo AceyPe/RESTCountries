@@ -66,7 +66,7 @@ function borderBtnFunc(borderName){
 </div>`;
 
 const borderCountries= document.querySelector(".borderCountries");
-(element.borders) ? element.borders.map((border) => fetch('https://restcountries.com/v3.1/alpha/' + border)
+(element.borders) ? element.borders.map((border) => {fetch('https://restcountries.com/v3.1/alpha/' + border)
                                                                                     .then(response => response.json())
                                                                                     .then(data => {
                                                                                         borderCountries.innerHTML += `
@@ -74,8 +74,9 @@ const borderCountries= document.querySelector(".borderCountries");
                                                                                         `;
                                                                                         const button = document.querySelector(".borderBtn")
                                                                                         console.log(button.innerText)
-                                                                                    })                                                                              
-): borderCountries.innerHTML += " none";
+                                                                                    });
+                                                                                                                                                                  
+                                                                                }): borderCountries.innerHTML += " none";
 const back= document.querySelector(".backButton")
 back.addEventListener("click", ()=>{
     countryModel.classList.toggle("show");
