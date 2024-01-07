@@ -119,7 +119,7 @@ button{
     font-size:15px;
     padding: 17px 20px;
     letter-spacing: 0.5px;
-    text-indent: 20px;;
+    text-indent: 20px;
     color: var(--input);
     background-color:var(--elements);
 }
@@ -186,6 +186,7 @@ button{
     margin: 30px 10px;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     background-color: var(--elements);
+
 }
 
 #countryList{

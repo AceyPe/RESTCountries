@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function(){
          </div>`;
          countryList.appendChild(listItem);
          listItem.addEventListener("click", () =>{
-            console.log(country.Currencies)
             showCountryDetail(country)
          })
          });
@@ -31,9 +30,21 @@ document.addEventListener('DOMContentLoaded', function(){
      .catch(error => console.error('Error fetching data:', error));
  });
 
+function borderBtnFunc(borderName){
+    fetch ('https://restcountries.com/v3.1/name/' + borderName)
+    .then (response => response.json())
+    .then (countryData => {
+        showCountryDetail(countryData)
+    })
+    .catch (error => {
+        console.error("error fetching data: ", error)
+    })
+}
+
  function showCountryDetail(element){
     const countryModel = document.querySelector(".countryModel");
     countryModel.classList.toggle("show");
+    const languages = element.languages.map((language) => language.name);
     countryModel.innerHTML = ` <button class="backButton"><i class="fa fa-long-arrow-left"></i>Back</button>
         <div class="model">
         <img src="${element.flags.svg}">
@@ -45,21 +56,42 @@ document.addEventListener('DOMContentLoaded', function(){
         <p>Sub Region: ${element.subregion}</p>
         <p>Capital: ${element.capital}</p>
             <div class="borderCountries">Border Countries:
-                <button class="borderBtn">France</button>
-                <button class="borderBtn">Germany</button>
-                <button class="borderBtn">Netherlands</button>
             </div>
         </div>
     <div class="rightModel">
         <p>Top Level Domain: ${element.topLevelDomain} </p>
-        <p>Currencies: ${element.Currencies} </p>
-        <p>Languages: </p>
+        <p>Currencies: ${element.currencies[0].name} </p>
+        <p>Languages: ${languages} </p>
     </div>
 </div>`;
+
+const borderCountries= document.querySelector(".borderCountries");
+(element.borders) ? element.borders.map((border) => fetch('https://restcountries.com/v3.1/alpha/' + border)
+                                                                                    .then(response => response.json())
+                                                                                    .then(data => {
+                                                                                        borderCountries.innerHTML += `
+                                                                                        <button class="borderBtn">${data[0].name.common}</button>
+                                                                                        `;
+                                                                                        const button = document.querySelector(".borderBtn")
+                                                                                        console.log(button.innerText)
+                                                                                    })                                                                              
+): borderCountries.innerHTML += " none";
 const back= document.querySelector(".backButton")
 back.addEventListener("click", ()=>{
     countryModel.classList.toggle("show");
 })
+//const borderButtons= document.querySelectorAll(".borderBtn");
+//console.log(borderButtons.)
+
+if(borderCountries.innerHtml != "Border Countries: none"){
+
+    /*borderButtons.map((button) => {
+        console.log(button.innerText)
+        button.addEventListener("click", ()=>{
+            fetch('https://restcountries.com/v3.1/name/' + button.innerText)
+          })
+        })*/
+}
 
  }
 
