@@ -61,17 +61,10 @@ body{
     justify-content: space-between;
     background-color:var(--elements);
     box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    position: fixed;
+    z-index: 1000;
 
 }
-
-.container-search{
-    width: 100%;
-    padding: 30px;
-    display:flex;
-    justify-content: space-between;
-    background-color:var(--background);
-}
-
 
 .container-search{
     width: 100%;
@@ -80,6 +73,8 @@ body{
     justify-content: space-between;
     background-color:var(--background);
     color:var(--texts);
+    top: 100px;
+    position: relative;
 }
 
 .toggle{
@@ -186,6 +181,7 @@ button{
     margin: 30px 10px;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     background-color: var(--elements);
+    top: 100px;
 
 }
 
@@ -194,7 +190,7 @@ button{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 0;
+    margin: 100px 0px;
 }
 
 #countryList li{
@@ -226,7 +222,7 @@ button{
     position: fixed;
     height:100%;
     width:100%;
-    top: 110px;
+    top: 0;
     left: 0;
     background: var(--background);
 }
@@ -237,7 +233,7 @@ button{
     color: var(--texts);
     background-color: var(--elements);
     padding: 0.7rem 2rem;
-    margin: 70px 50px;
+    margin: 120px 50px;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     justify-content: center;
     cursor:pointer;
@@ -252,24 +248,26 @@ button{
 
 .model{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
-.model img{
+.modelImg{
     position: relative;
-    height:400px;
-    width:550px;
-    bottom: 70px;
     left: 50px;
+    margin: 0px 30px;
+}
+
+.modelImg img{
+    position: relative;
+    height:350px;
+    width: 550px;
 }
 
 .leftModel{
     position: relative;
-    bottom:100px;
-    right: 100px;
+    left: 50px;
 }
 
 .leftModel h1{
@@ -281,9 +279,9 @@ button{
 }
 
 .rightModel{
-    position: relative;
-    bottom: 115px;
-    right: 400px;
+    position:absolute;
+    left: 1000px;
+    bottom: 440px;
 }
 
 .rightModel p{
@@ -291,15 +289,16 @@ button{
 }
 
 .borderCountries{
-    position: relative;
-    top: 3rem;
+    top: 200px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .borderBtn{
     background-color: Var(--elements);
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     padding: 5px 20px;
-    margin: 0 2px;;
+    margin: 0 5px;;
     font-size: 12px;
     cursor: pointer;
     color: var(--texts);

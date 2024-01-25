@@ -4,6 +4,7 @@ const region= document.querySelectorAll(".region")
 const search= document.querySelector(".search")
 const toggle= document.querySelector(".toggle")
 const moon= document.querySelector(".moon")
+const countryModel = document.querySelector(".countryModel");
 document.addEventListener('DOMContentLoaded', function(){
     const countryList = document.getElementById('countryList');
 
@@ -24,30 +25,28 @@ document.addEventListener('DOMContentLoaded', function(){
          countryList.appendChild(listItem);
          listItem.addEventListener("click", () =>{
             showCountryDetail(country)
+            countryModel.classList.toggle("show");
          })
          });
      })
      .catch(error => console.error('Error fetching data:', error));
  });
 
-function borderBtnFunc(borderName){
-    fetch ('https://restcountries.com/v3.1/name/' + borderName)
-    .then (response => response.json())
-    .then (countryData => {
-        showCountryDetail(countryData)
-    })
-    .catch (error => {
-        console.error("error fetching data: ", error)
-    })
-}
-
  function showCountryDetail(element){
-    const countryModel = document.querySelector(".countryModel");
-    countryModel.classList.toggle("show");
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(country => {
+                    if (country.name == element.name){
+                         console.log(country);
+                    }
+                })
+          })
+
     const languages = element.languages.map((language) => language.name);
     countryModel.innerHTML = ` <button class="backButton"><i class="fa fa-long-arrow-left"></i>Back</button>
         <div class="model">
-        <img src="${element.flags.svg}">
+        <div class="modelImg"><img src="${element.flags.svg}"></div>
         <div class="leftModel">
         <h1 class="name">${element.name}</h1>
         <p>Native Name: ${element.nativeName} </p>
@@ -55,8 +54,8 @@ function borderBtnFunc(borderName){
         <p>Region: ${element.region}</p>
         <p>Sub Region: ${element.subregion}</p>
         <p>Capital: ${element.capital}</p>
-            <div class="borderCountries">Border Countries:
-            </div>
+        <div class="borderCountries">Border Countries:
+        </div>
         </div>
     <div class="rightModel">
         <p>Top Level Domain: ${element.topLevelDomain} </p>
@@ -66,26 +65,50 @@ function borderBtnFunc(borderName){
 </div>`;
 
 const borderCountries= document.querySelector(".borderCountries");
-(element.borders) ? element.borders.map((border) => {fetch('https://restcountries.com/v3.1/alpha/' + border)
-                                                                                    .then(response => response.json())
-                                                                                    .then(data => {
-                                                                                        borderCountries.innerHTML += `
-                                                                                        <button class="borderBtn">${data[0].name.common}</button>
-                                                                                        `;
-                                                                                        const button = document.querySelector(".borderBtn")
-                                                                                        console.log(button.innerText)
-                                                                                    });
-                                                                                                                                                                  
-                                                                                }): borderCountries.innerHTML += " none";
+(element.borders) ? element.borders.map((border, i) => {fetch('data.json')
+                                                            .then(response => response.json())
+                                                            .then(data => {
+                                                                data.forEach(country => {
+                                                                    if(country.alpha3Code == border){
+                                                                        const borderCountry = document.createElement('button')
+                                                                        borderCountry.innerHTML = `
+                                                                        <button class="borderBtn">${country.name}</button>
+                                                                        `;
+                                                                        borderCountries.appendChild(borderCountry)
+                                                                    borderCountry.addEventListener("click", ()=>{
+                                                                                        showCountryDetail(country)
+                                                                                                            })
+                                                                                                         }})
+                                                                                                            }
+                                                                                                                 );                                                                                  
+                                                                                                                    }): borderCountries.innerHTML += " none";
+                                                                                
 const back= document.querySelector(".backButton")
 back.addEventListener("click", ()=>{
     countryModel.classList.toggle("show");
-})
+        })
 //const borderButtons= document.querySelectorAll(".borderBtn");
 //console.log(borderButtons.)
-
-if(borderCountries.innerHtml != "Border Countries: none"){
-
+if(element.borders){
+    
+//console.log(
+       
+    
+    //fetch('data.json')
+    //    .then(promise => promise.json())
+    //    .then(data => {
+    //        const index = data.findIndex(item => item.name === )
+    //        (data.name = element.name)? data[index]: "not found"})
+    //)
+    const borderButtons= document.querySelectorAll(".borderBtn")
+    borderButtons.forEach(button => {
+        console.log(button);
+        button.addEventListener("click", ()=>{
+            console.log("this is testing and it works general: ")
+            console.log(button.innerText)
+        })
+    })
+    
     /*borderButtons.map((button) => {
         console.log(button.innerText)
         button.addEventListener("click", ()=>{
@@ -94,7 +117,7 @@ if(borderCountries.innerHtml != "Border Countries: none"){
         })*/
 }
 // this is just to push ?
- }
+}
 
  /* get data after fetching*/
  const regionName = document.getElementsByClassName("regionName")
@@ -109,10 +132,10 @@ if(borderCountries.innerHtml != "Border Countries: none"){
      element.addEventListener("click", ()=>{
          Array.from(regionName).forEach(elem => {
              if(elem.innerText.includes(element.innerText) || element.innerText =="All"){
-                 elem.parentElement.parentElement.style.display ="grid";
+                 elem.parentElement.parentElement.parentElement.style.display ="flex";
              }
              else{
-                 elem.parentElement.parentElement.style.display="none";
+                 elem.parentElement.parentElement.parentElement.style.display="none";
              }
          })
      })
@@ -121,9 +144,9 @@ search.addEventListener("input", ()=>{
     console.log(search.value.toUpperCase());
     Array.from(countryName).forEach(element =>{
         if(element.innerText.toUpperCase().includes(search.value.toUpperCase())){
-            element.parentElement.parentElement.style.display= "grid";
+            element.parentElement.parentElement.parentElement.style.display= "flex";
         }else{
-            element.parentElement.parentElement.style.display= "none";
+            element.parentElement.parentElement.parentElement.style.display= "none";
         }
         
     })
