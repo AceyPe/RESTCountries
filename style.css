@@ -307,3 +307,225 @@ button{
 .show{
     display:none;
 }
+
+@media only screen and (max-width: 375px) {
+    
+    .container{
+        width: 100%;
+        display:flex;
+        justify-content: space-between;
+        background-color:var(--elements);
+        box-shadow: 0 0 2px rgba(0,0,0,0.3);
+        position: fixed;
+        z-index: 1000;
+        font-size: 6px;
+        text-wrap: nowrap;
+    }
+    
+    .toggle{
+        font-size: 10px;
+        cursor: pointer;
+        width: 80px;
+        color: var(--texts);
+    }
+    
+    .toggle i{
+        padding-right:5px;
+    }
+    .container-search{
+        width: 100%;
+        background-color: red;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color:var(--background);
+        color:var(--texts);
+        top:70px;
+        position: relative;
+        padding: 20px 10px;
+    }
+    
+  
+    .searchBar{
+        width: 100%;
+        text-decoration: none;
+        font-size: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        margin-bottom: 30px;
+
+    }
+    
+    .searchBar input{
+        border:none;
+        font-size:10px;
+        letter-spacing: 0.5px;
+        text-indent: 20px;
+    }
+    
+    .searchBar input::placeholder{
+        color:var(--input);
+        font-size: 10px;
+    }
+    
+    .searchBar i{
+        font-size: 10px;
+        margin: 0px 10px;
+    }
+
+    .dropDownContainer{
+        width:150px;
+        position: relative;
+        background-color:var(--elements);
+    }
+    
+    .dropDown{
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        display:flex;
+        justify-content: space-between;
+        cursor: pointer;
+        font-size: 10px;
+        background-color: var(--elements);
+        color: var(--texts);
+    }
+    .dropDown i{
+        cursor: pointer;
+        color: var(--texts)
+    }
+
+    .dropItems{
+        position: absolute;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        padding: 20px 20px;
+        border-radius: 5px;
+        width: 100%;
+        background-color: VAR(--elements);
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    .dropItems p{
+        margin: 10px 0px;
+    }
+
+    .country{
+        min-height: 150px;
+        width: 290px;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 15px 0px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        background-color: var(--elements);
+        top: 50px;
+    }
+
+    #countryList{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 50px 0px;
+    }
+    #countryList li{
+    
+        text-align: left;
+    }
+    
+    .country-img{
+        height: 180px;
+    }
+    .country-img img{
+        width: 100%;
+        height: 100%;
+        cursor:pointer;
+    }
+    .country-info{
+        padding: 20px 17px;
+        cursor:pointer;
+    }
+    .country-info p{
+        padding: 5px 0px;
+        font-size: 10px;
+    }
+    .country-info h2{
+        padding-bottom: 20px;
+        font-size: 15px;
+    }
+    
+    .backButton{
+        position: relative;
+        padding: 0.7rem 1.5rem;
+        margin: 20px;;
+        top: 100px;
+        cursor:pointer;
+        font-size:12px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+    
+    .model{
+        position: relative;
+        top: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .modelImg{
+        position: relative;
+        left: 0px;
+        margin: 20px 30px;
+    }
+    
+    .modelImg img{
+        position: relative;
+        height:200px;
+        width: 300px;
+    }
+    
+    .leftModel{
+        position: absolute;
+        left: 30px;
+        bottom: 400px;
+        font-size: 10px;
+    }
+    
+    .leftModel h1{
+        padding-bottom: 20px;
+    }
+    
+    .leftModel p{
+        padding-bottom: 10px;
+    }
+    
+    .rightModel{
+        position: absolute;
+        font-size: 10px;
+        left: 30px;
+        bottom: 280px;
+    }
+    
+    
+    .borderCountries{
+        position: relative;
+        top: 180px;
+        width: 100%;
+        flex-wrap: wrap;
+        font-size: 12px;
+    }
+    
+    .borderBtn{
+        background-color: Var(--elements);
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        padding: 5px 10px;
+        margin: px 10px;
+        font-size: 8px;
+        cursor: pointer;
+        color: var(--texts);
+    }
+    
+}

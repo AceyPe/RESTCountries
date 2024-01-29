@@ -131,7 +131,7 @@ if(element.borders){
  region.forEach(element =>{
      element.addEventListener("click", ()=>{
          Array.from(regionName).forEach(elem => {
-             if(elem.innerText.includes(element.innerText) || element.innerText =="All"){
+             if(elem.innerText.includes(element.innerText)){
                  elem.parentElement.parentElement.parentElement.style.display ="flex";
              }
              else{
